@@ -49,10 +49,15 @@ app.get('/', async (req, res) => {
             }
         ]);
 
-        res.json({
-            success: true,
-            data: result
-        });
+        result = result.map(item => {
+            return {
+                road_code: item.properties.name,
+                name: item.properties.description,
+                distance: item.distance,
+            }
+        })
+
+        res.json(result);
 
     } catch(err) {
         res.json({
