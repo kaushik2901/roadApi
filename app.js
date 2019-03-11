@@ -20,10 +20,7 @@ app.get('/', async (req, res) => {
         })
     }
 
-    try {
-        let maxDistance = req.query.maxDistance || 500;
-        maxDistance = parseInt(maxDistance);
-        
+    try {        
         let location = req.query.location;
         let [ lat, lon ] = location.split(',');
         [ lat, lon ] = [ parseFloat(lat), parseFloat(lon) ];
@@ -35,7 +32,6 @@ app.get('/', async (req, res) => {
                                 "type": "Point",
                                 "coordinates": [ lon, lat ]
                         },
-                        "maxDistance": maxDistance,
                         "spherical": true,
                         "distanceField": "distance",
                 }
@@ -47,7 +43,7 @@ app.get('/', async (req, res) => {
                     "properties.description": 1,
                 }
             }
-        ]);
+        ]).limit(2);
 
         result = result.map(item => {
             return {
