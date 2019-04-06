@@ -43,7 +43,7 @@ module.exports.home = async (req, res) => {
         result = result.map(item => {
             return {
                 uniqe_code: item.properties.name,
-                name: item.properties.description,
+                road_name: item.properties.description,
                 distance: item.distance,
             }
         })
