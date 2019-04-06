@@ -27,6 +27,7 @@ module.exports.home = async (req, res) => {
                         },
                         "spherical": true,
                         "distanceField": "distance",
+                        "distanceMultiplier" : 0.001,
                 }
             },
             {
