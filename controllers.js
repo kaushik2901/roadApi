@@ -3,6 +3,7 @@ const fs = require('fs');
 const xmlDom = require('xmldom');
 const formidable = require('formidable');
 const tj = require('@mapbox/togeojson');
+const db = require('./db');
 
 module.exports.home = async (req, res) => {
 
